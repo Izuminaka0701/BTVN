@@ -2,19 +2,53 @@ using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Collections.Generic;
 using System;
+using System.Diagnostics;
 
 namespace BTVN
 {
-    internal class Program
+    public class Timing
+    {
+        TimeSpan startingTime;
+        TimeSpan duration;
+        public Timing()
+        {
+            startingTime = new TimeSpan(0);
+            duration = new TimeSpan(0);
+        }
+        public void StopTime()
+        {
+            duration =
+            Process.GetCurrentProcess().Threads[0].
+            UserProcessorTime.
+            Subtract(startingTime);
+        }
+        public void startTime()
+        {
+            GC.Collect();
+            GC.WaitForPendingFinalizers();
+            startingTime =
+            Process.GetCurrentProcess().Threads[0].
+            UserProcessorTime;
+        }
+        public TimeSpan Result()
+        {
+            return duration;
+        }
+    }
+    class Program
     {
         static void Main(string[] args)
         {
+            Timing timing = new Timing();
+            timing.startTime();
             Console.WriteLine(Sum(10, 20));
             Console.WriteLine(Sum("Hello", "World"));
             int[] a = { 1, 2, 3 };
             int[] b = { 7, 8, 9 };
             var sum = Sum(a, b);
             Console.WriteLine(string.Join(", " , sum));
+            timing.StopTime();
+            Console.WriteLine("\n Thoi gian : " + timing.Result().TotalSeconds);
         }
         static T Sum<T>(T a, T b)
         {
