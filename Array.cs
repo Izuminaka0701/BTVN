@@ -29,7 +29,7 @@ class Monhoc
     public double Max()
     {
         double max = diemso[0];
-        foreach (int i in diemso)
+        foreach (double i in diemso)
         {
             if (i > max)
                 max = i;
@@ -39,7 +39,7 @@ class Monhoc
     public double Min()
     {
         double min = diemso[0];
-        foreach (int i in diemso)
+        foreach (double i in diemso)
         {
             if (i < min)
                 min = i;
