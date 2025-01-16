@@ -3,7 +3,7 @@ class Monhoc
     string tenmonhoc;
     double[] diemso;
     int soluonghs;
-    public Monhoc(string tenmonhoc, int soluonghs)
+    public Monhoc(string tenmonhoc)
     {
        this.tenmonhoc = tenmonhoc;
        this.soluonghs = soluonghs;
