@@ -3,7 +3,7 @@ class Monhoc
     string tenmonhoc;
     double[] diemso;
     int soluonghs;
-    public Monhoc(string tenmonhoc)
+    public Monhoc(string tenmonhoc, int soluonghs)
     {
        this.tenmonhoc = tenmonhoc;
        this.soluonghs = soluonghs;
@@ -11,9 +11,6 @@ class Monhoc
     }
     public void Nhap()
     {
-        Console.WriteLine($"Nhap diem mon: {tenmonhoc}");
-        Console.WriteLine("Nhap so luong hs: ");
-        int soluonghs = int.Parse(Console.ReadLine());
         for (int i = 0; i < soluonghs ; i++)
         {
             Console.WriteLine($"Nhap diem cho hs {i + 1}: ");
@@ -62,6 +59,8 @@ class Program {
     {
         Console.Write("Nhap mon:");
         string tenmonhoc = Console.ReadLine();
+        Console.WriteLine("Nhap so luong hs: ");
+        int soluonghs = int.Parse(Console.ReadLine());
         Monhoc monhoc = new Monhoc(tenmonhoc, soluonghs);
         monhoc.Nhap();
         monhoc.thongtin();
