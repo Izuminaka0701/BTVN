@@ -61,6 +61,7 @@ class InfixToPostfix
     // Hàm chính
     static void Main()
     {
+        Console.OutputEncoding = Encoding.UTF8;
         Console.Write("Nhập biểu thức Infix: ");
         string infix = Console.ReadLine();
         string postfix = ConvertToPostfix(infix);
