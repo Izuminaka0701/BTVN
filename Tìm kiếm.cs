@@ -1,3 +1,32 @@
+public class Timing
+    {
+        TimeSpan startingTime;
+        TimeSpan duration;
+        public Timing()
+        {
+            startingTime = new TimeSpan(0);
+            duration = new TimeSpan(0);
+        }
+        public void StopTime()
+        {
+            duration =
+            Process.GetCurrentProcess().Threads[0].
+            UserProcessorTime.
+            Subtract(startingTime);
+        }
+        public void startTime()
+        {
+            GC.Collect();
+            GC.WaitForPendingFinalizers();
+            startingTime =
+            Process.GetCurrentProcess().Threads[0].
+            UserProcessorTime;
+        }
+        public TimeSpan Result()
+        {
+            return duration;
+        }
+    }
 public class Program
 {
     static int SeqSearch(int[] arr, int value)
@@ -67,7 +96,8 @@ public class Program
     public static void Main(string[] args)
     {
         Console.Clear();
-
+        Timing time = new Timing();
+        time.startTime();
         //int[] arr = {3, 9, 2, 5, 6};
         //int value = 6;
         //int index = SeqSearch(arr, value);
@@ -80,6 +110,8 @@ public class Program
         int value = 6;
         int index = BinsearchRecursion(sarr, l, r, value);
         Console.WriteLine($"Phần tử có giá trị {value} ở vị trí {index}");
+        time.StopTime();
+        Console.WriteLine(time.Result().TotalNanoseconds);
         /*int index = SensearchRecursion(arr, value, 1);
         Console.WriteLine($"Phần tử có giá trị {value} ở vị trí {index}");*/
     }
