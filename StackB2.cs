@@ -5,6 +5,7 @@ class Program
 {
     static int EvaluatePostfix(string expression)
     {
+        Console.OutputEncoding = Encoding.UTF8;
         Stack<int> stack = new Stack<int>(); // Tạo stack để lưu toán hạng
 
         foreach (string token in expression.Split(' '))
@@ -33,6 +34,7 @@ class Program
 
     static void Main()
     {
+        Console.OutputEncoding = Encoding.UTF8;
         string postfixExpression = "5 3 + 2 * 4 -"; // Biểu thức hậu tố cần tính
         Console.WriteLine($"Kết quả: {EvaluatePostfix(postfixExpression)}"); // Output: 12
     }
