@@ -7,6 +7,7 @@ class HTMLValidatorWithQueue
 {
     static bool CheckHTMLValidity(string filePath)
     {
+        Console.OutputEncoding = Encoding.UTF8;
         if (!File.Exists(filePath))
         {
             Console.WriteLine("File không tồn tại!");
@@ -56,6 +57,7 @@ class HTMLValidatorWithQueue
 
     static void Main()
     {
+        Console.OutputEncoding = Encoding.UTF8;
         Console.Write("Nhập đường dẫn file HTML: ");
         string filePath = Console.ReadLine();
 
