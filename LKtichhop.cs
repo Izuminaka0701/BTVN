@@ -6,6 +6,7 @@ public class Program
 {
     public static void Main(string[] args)
     {
+        Console.OutputEncoding = Encoding.UTF8;
         LinkedList<string> names = new LinkedList<string>();
         Console.OutputEncoding = Encoding.UTF8;
         Console.WriteLine("Thêm phần tử vào danh sách:");
