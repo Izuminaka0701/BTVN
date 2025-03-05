@@ -119,8 +119,8 @@ public class Program
     {
         Console.Clear();
         Book book1 = new Book("C# programming", "John Doe", 100);
-        Book book2 = new Book("C programming", "Tam", 200);
-        Book book3 = new Book("Python programing", "Vinh", 300);
+        Book book2 = new Book("C programming", "Minh", 200);
+        Book book3 = new Book("Python programing", "Quan", 300);
         Books bookdict = new Books();
         bookdict.Add("ISBN01", book1);
         bookdict.Add("ISBN02", book2);
@@ -132,7 +132,7 @@ public class Program
         {
             Console.WriteLine("Book found with[{0}]:{0},{1},{2}", book.title, book.author, book.price);
         }
-        bookdict.UpdateBook("ISBN03", "Python programing", "Vinh tam", 3444);
+        bookdict.UpdateBook("ISBN03", "Python programing", "Minh Quan", 3444);
         bookdict.PrintListofBook();
 
         //Console.WriteLine("Tiltle: {0}",bookdict.Items("ISBN01").title);
@@ -211,8 +211,8 @@ public class Program
     {
         Console.Clear();
         Book book1 = new Book("C# programming", "John Doe", 100);
-        Book book2 = new Book("C programming", "Tam", 200);
-        Book book3 = new Book("Python programming", "Vinh", 300);
+        Book book2 = new Book("C programming", "Minh", 200);
+        Book book3 = new Book("Python programming", "Quan", 300);
         Books bookdict = new Books();
         bookdict.Add("ISBN01", book1);
         bookdict.Add("ISBN02", book2);
@@ -226,7 +226,7 @@ public class Program
             Console.WriteLine("Book found: {0}, {1}, {2}", book.title, book.author, book.price);
         }
 
-        bookdict.UpdateBook("ISBN03", "Python programming", "Vinh Tam", 3444);
+        bookdict.UpdateBook("ISBN03", "Python programming", "Minh Quan", 3444);
         bookdict.PrintListofBook();
     }
 }
